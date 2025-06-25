@@ -10,7 +10,6 @@ dependencies:
     - field.storage.node.field_body
     - field.storage.node.field_description
     - field.storage.user.field_job_title
-    - field.storage.user.field_parish_school
     - field.storage.user.field_public_email
     - field.storage.user.field_user_first_name
     - field.storage.user.field_user_last_name
@@ -20,7 +19,6 @@ dependencies:
     - better_exposed_filters
     - facets_exposed_filters
     - options
-    - protected_email
     - search_api
     - search_api_solr
 id: search_results
@@ -734,96 +732,6 @@ display:
             use_highlighting: false
             multi_type: separator
             multi_separator: ', '
-        field_parish_school:
-          id: field_parish_school
-          table: search_api_index_default_index
-          field: field_parish_school
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api_field
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: '<small>{{ field_parish_school }}</small>'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: true
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          field_rendering: true
-          fallback_handler: search_api_entity
-          fallback_options:
-            link_to_item: false
-            use_highlighting: false
-            multi_type: separator
-            multi_separator: ', '
-            display_methods:
-              catholic_herald_issues:
-                display_method: label
-              councils_and_commissions:
-                display_method: label
-                view_mode: default
-              diocesan_departments:
-                display_method: label
-                view_mode: default
-              diocesan_ministries:
-                display_method: label
-                view_mode: default
-              parishes:
-                display_method: label
-              school_grades:
-                display_method: label
-              sorting_tags:
-                display_method: label
-              tags:
-                display_method: label
         roles:
           id: roles
           table: search_api_index_default_index
@@ -2632,6 +2540,50 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        entity_type_3:
+          id: entity_type_3
+          table: search_api_index_default_index
+          field: entity_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_string
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: directory
+          group: 4
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
         facets_type:
           id: facets_type
           table: search_api_index_default_index
@@ -2709,7 +2661,7 @@ display:
           exposed: true
           expose:
             operator_id: ''
-            label: Role
+            label: People
             description: ''
             use_operator: false
             operator: ''
@@ -2763,50 +2715,6 @@ display:
                   sort: 30
                 settings:
                   sort: DESC
-        entity_type_3:
-          id: entity_type_3
-          table: search_api_index_default_index
-          field: entity_type
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api_string
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: directory
-          group: 4
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            min_placeholder: ''
-            max_placeholder: ''
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
         facets_field_diocesan_department:
           id: facets_field_diocesan_department
           table: search_api_index_default_index
@@ -3007,7 +2915,6 @@ display:
         - 'config:field.storage.node.field_body'
         - 'config:field.storage.node.field_description'
         - 'config:field.storage.user.field_job_title'
-        - 'config:field.storage.user.field_parish_school'
         - 'config:field.storage.user.field_public_email'
         - 'config:field.storage.user.field_user_first_name'
         - 'config:field.storage.user.field_user_last_name'
@@ -3045,7 +2952,6 @@ display:
         - 'config:field.storage.node.field_body'
         - 'config:field.storage.node.field_description'
         - 'config:field.storage.user.field_job_title'
-        - 'config:field.storage.user.field_parish_school'
         - 'config:field.storage.user.field_public_email'
         - 'config:field.storage.user.field_user_first_name'
         - 'config:field.storage.user.field_user_last_name'

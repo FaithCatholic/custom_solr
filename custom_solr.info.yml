@@ -9,6 +9,8 @@ dependencies:
   - diocesan_directory:diocesan_directory
   - drupal:views
   - facets:facets
+  - facets_exposed_filters:facets_exposed_filters
+  - facets_searchbox_widget:facets_searchbox_widget
   - search_api_solr_admin:search_api_solr_admin
   - search_api_solr:search_api_solr
   - search_api:search_api
