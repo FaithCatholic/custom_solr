@@ -11,7 +11,7 @@ use Drupal\Core\Block\BlockBase;
  *
  * @Block(
  *   id = "solr_search_simple_form_block",
- *   admin_label = @Translation("Custom solr search"),
+ *   admin_label = @Translation("Solr search form (simple)"),
  *   category = @Translation("Search")
  * )
  */
@@ -23,11 +23,11 @@ class SolrSearchSimpleFormBlock extends BlockBase {
   public function build() {
     $form = <<<HTML
       <form method="get" action="/search" id="search-api-page-block-form-solr-search">
-        <input type="text" name="keys" id="edit-keys--3" placeholder="Search...">
+        <input type="text" name="keys" id="edit-keys--3" class="form-search" placeholder="Search...">
         <input type="hidden" name="created_date[min]" value="">
         <input type="hidden" name="created_date[max]" value="">
-        <input type="hidden" name="event_date[min]" value="">
-        <input type="hidden" name="event_date[max]" value="">
+        <input type="hidden" name="event_date[min]" value=""> <!-- field_event_date is not present on all sites -->
+        <input type="hidden" name="event_date[max]" value=""> <!-- field_event_date is not present on all sites -->
         <input type="hidden" name="published_dates[min]" value="">
         <input type="hidden" name="published_dates[max]" value="">
         <input type="hidden" name="sort_by" value="relevance">

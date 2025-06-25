@@ -12,7 +12,8 @@ use Drupal\Core\Entity\EntityInterface;
 /**
  * Implements hook_views_pre_render().
  */
-function custom_solr_views_pre_render(ViewExecutable $view) {
+function custom_solr_views_pre_render(ViewExecutable $view)
+{
   ### Remove stubborn duplicates ###
   if ($view->storage->get('id') === 'search_results' && $view->current_display === 'default_page') {
     $seen_ids = [];
@@ -34,7 +35,8 @@ function custom_solr_views_pre_render(ViewExecutable $view) {
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function custom_solr_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+function custom_solr_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id)
+{
   if ($form['#id'] === 'views-exposed-form-search-results-default-page') {
     ### Layout ###
 
@@ -68,8 +70,8 @@ function custom_solr_form_views_exposed_form_alter(&$form, FormStateInterface $f
     $date_range_fields[] = 'published_dates';
     $date_range_fields[] = 'event_date';
 
-    foreach($date_range_fields as $date_range_field) {
-      if (!empty($form[$date_range_field.'_wrapper'])) {
+    foreach ($date_range_fields as $date_range_field) {
+      if (!empty($form[$date_range_field . '_wrapper'])) {
         $form[$date_range_field . '_wrapper'][$date_range_field . '_wrapper'][$date_range_field]['min']['#title'] = t('Between');
         $form[$date_range_field . '_wrapper'][$date_range_field . '_wrapper'][$date_range_field]['max']['#title'] = t('and');
         $form[$date_range_field . '_wrapper']['#weight'] = 10;
@@ -80,4 +82,17 @@ function custom_solr_form_views_exposed_form_alter(&$form, FormStateInterface $f
     $form['#attached']['library'][] = 'custom_solr/solr_theme';
     $form['#attached']['library'][] = 'custom_solr/solr_scripts';
   }
+}
+
+/**
+ * Implements hook_search_api_solr_config_sets_alter().
+ */
+function custom_solr_search_api_solr_config_sets_alter(&$sets) {
+  $module_path = \Drupal::service('extension.list.module')->getPath('custom_solr');
+
+  $sets['custom_solr_9x'] = [
+    'label' => t('Custom Solr 9.x config-set'),
+    'path' => $module_path . '/solr-conf/9.x/configset',
+    'version' => 9,
+  ];
 }

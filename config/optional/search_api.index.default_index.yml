@@ -158,14 +158,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.directory.field_county
-  field_date:
-    label: 'Event date'
-    datasource_id: 'entity:node'
-    property_path: field_date
-    type: date
-    dependencies:
-      config:
-        - field.storage.node.field_date
   field_deckhead:
     label: Summary
     datasource_id: 'entity:node'
@@ -243,24 +235,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.user.field_hide
-  field_info_below_contacts:
-    label: 'Info below contacts'
-    datasource_id: 'entity:node'
-    property_path: field_info_below_contacts
-    type: text
-    boost: 0.9
-    dependencies:
-      config:
-        - field.storage.node.field_info_below_contacts
-  field_info_below_icons:
-    label: 'Info below Icons'
-    datasource_id: 'entity:node'
-    property_path: field_info_below_icons
-    type: text
-    boost: 0.9
-    dependencies:
-      config:
-        - field.storage.node.field_info_below_icons
   field_job_category:
     label: 'Job category'
     datasource_id: 'entity:node'
@@ -323,14 +297,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_organization_name
-  field_parish_school:
-    label: Parish/school
-    datasource_id: 'entity:user'
-    property_path: field_parish_school
-    type: text
-    dependencies:
-      config:
-        - field.storage.user.field_parish_school
   field_public_email:
     label: 'Public email'
     datasource_id: 'entity:user'
@@ -517,8 +483,6 @@ processor_settings:
       - field_event_category
       - field_event_type
       - field_general_info
-      - field_info_below_contacts
-      - field_info_below_icons
       - field_job_category
       - field_job_title
       - field_kicker
@@ -526,7 +490,6 @@ processor_settings:
       - field_ministry
       - field_name
       - field_organization_name
-      - field_parish_school
       - field_public_email
       - field_subhead
       - field_user_first_name
