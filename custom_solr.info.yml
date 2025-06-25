@@ -5,7 +5,6 @@ core_version_requirement: ^10 || ^9
 package: Custom
 dependencies:
   - better_exposed_filters:better_exposed_filters
-  - block_class:block_class
   - diocesan_directory:diocesan_directory
   - drupal:views
   - facets:facets

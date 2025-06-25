@@ -6,7 +6,6 @@
     "require": {
         "php": "^8.0",
         "drupal/better_exposed_filters": "^6.0",
-        "drupal/block_class": "^3.0",
         "drupal/core": "^9.2 || ^10",
         "drupal/facets": "^3.0",
         "drupal/search_api": "^1.3",
