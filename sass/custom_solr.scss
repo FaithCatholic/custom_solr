@@ -1,0 +1,159 @@
+/**
+ * Styles for solr search using search_api
+ * and a search results view.
+ */
+
+.view-search-results,
+.view-search-users {
+  .search-result-hide {
+    display: none;
+  }
+
+  .views-exposed-form,
+  .bef-exposed-form > .form--inline {
+    .form-item-keys > .form-text {
+      // Searchbox rules
+    }
+
+    [id^="edit-submit-"].form-submit {
+       margin: 19px 0 0 0;
+    }
+
+    [id^="edit-reset-"].form-submit {
+      margin: 19px 0 0 10px;
+    }
+
+    details {
+      border-color: #ddd;
+      border-radius: 5px;
+      font-size: 13px;
+      margin-bottom: 0;
+      max-width: 640px;
+
+      & > .details-wrapper {
+        padding: 1.5em 1.5em 0.5em;
+      }
+
+      summary {
+        color: #666;
+
+        // Not supported by chrome.
+        &::marker {
+          content: '';
+        }
+
+        &[aria-expanded="false"]::before {
+          content: '\25b6';
+          font-size: 8px;
+          margin-right: 5px;
+        }
+
+        &[aria-expanded="true"]::before {
+          content: '\25bc';
+          font-size: 8px;
+          margin-right: 5px;
+        }
+      }
+
+      &, &.js-form-wrapper {
+        fieldset,
+        & > fieldset {
+          border: none;
+          border-bottom: 1px solid #ddd !important;
+          float: none;
+          padding: 0 0 10px !important;
+
+          legend {
+            font-weight: bold;
+            line-height: 1em;
+          }
+
+          &:first-child {
+            margin-top: 0;
+          }
+
+          &:has([id*="date"]) {
+            & > .fieldset-wrapper {
+              display: flex;
+            }
+          }
+
+          &:not([id*="date"]):last-child {
+            border-bottom: none !important;
+            margin-bottom: 0 !important;
+          }
+
+          .form-checkboxes {
+            .form-item {
+              margin-right: 10px;
+            }
+          }
+
+          .form-radios {
+            display: flex;
+            flex-wrap: wrap;
+            line-height: 1.5em;
+            white-space: nowrap;
+
+            .form-item {
+              margin-right: 10px;
+
+              .form-item:last-child {
+                margin-right: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .form-actions {
+      margin: 0;
+    }
+  }
+
+  .search-result-highlight {
+    background-color: yellow;
+  }
+
+  .search-result-excerpt {
+    font-size: 80%;
+    line-height: 1.5em;
+  }
+
+  .views-field-search-api-excerpt {
+    border-top: 0.5px dotted #666;
+    color: #666;
+    font-size: 12px;
+    font-style: italic;
+    margin-top: 10px;
+    padding-top: 10px;
+
+    .views-label {
+      color: #333;
+    }
+  }
+
+  .views-field-field-county {
+    text-transform: capitalize;
+  }
+
+  .views-field-field-mailing-address {
+    font-size: 80%;
+    line-height: 1.35em;
+    margin: 0;
+
+    p.address {
+      background: #eee;
+      border-radius: 3px;
+      display: inline-block;
+      font-size: 12px;
+      margin: 0;
+      padding: 5px;
+
+      .country {
+        display: none;
+      }
+    }
+  }
+}

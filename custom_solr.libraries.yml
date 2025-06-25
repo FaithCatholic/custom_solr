@@ -1,0 +1,14 @@
+solr_theme:
+  version: 1.x
+  css:
+    theme:
+      dist/custom_solr.css: {}
+
+solr_scripts:
+  version: 1.x
+  js:
+    dist/custom_solr.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings

@@ -1,0 +1,259 @@
+@charset "UTF-8";
+/**
+ * Styles for solr search using search_api
+ * and a search results view.
+ */
+.view-search-results .search-result-hide,
+.view-search-users .search-result-hide {
+  display: none;
+}
+.view-search-results .views-exposed-form [id^=edit-submit-].form-submit,
+.view-search-results .bef-exposed-form > .form--inline [id^=edit-submit-].form-submit,
+.view-search-users .views-exposed-form [id^=edit-submit-].form-submit,
+.view-search-users .bef-exposed-form > .form--inline [id^=edit-submit-].form-submit {
+  margin: 19px 0 0 0;
+}
+.view-search-results .views-exposed-form [id^=edit-reset-].form-submit,
+.view-search-results .bef-exposed-form > .form--inline [id^=edit-reset-].form-submit,
+.view-search-users .views-exposed-form [id^=edit-reset-].form-submit,
+.view-search-users .bef-exposed-form > .form--inline [id^=edit-reset-].form-submit {
+  margin: 19px 0 0 10px;
+}
+.view-search-results .views-exposed-form details,
+.view-search-results .bef-exposed-form > .form--inline details,
+.view-search-users .views-exposed-form details,
+.view-search-users .bef-exposed-form > .form--inline details {
+  border-color: #ddd;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-bottom: 0;
+  max-width: 640px;
+}
+.view-search-results .views-exposed-form details > .details-wrapper,
+.view-search-results .bef-exposed-form > .form--inline details > .details-wrapper,
+.view-search-users .views-exposed-form details > .details-wrapper,
+.view-search-users .bef-exposed-form > .form--inline details > .details-wrapper {
+  padding: 1.5em 1.5em 0.5em;
+}
+.view-search-results .views-exposed-form details summary,
+.view-search-results .bef-exposed-form > .form--inline details summary,
+.view-search-users .views-exposed-form details summary,
+.view-search-users .bef-exposed-form > .form--inline details summary {
+  color: #666;
+}
+.view-search-results .views-exposed-form details summary::marker,
+.view-search-results .bef-exposed-form > .form--inline details summary::marker,
+.view-search-users .views-exposed-form details summary::marker,
+.view-search-users .bef-exposed-form > .form--inline details summary::marker {
+  content: "";
+}
+.view-search-results .views-exposed-form details summary[aria-expanded=false]::before,
+.view-search-results .bef-exposed-form > .form--inline details summary[aria-expanded=false]::before,
+.view-search-users .views-exposed-form details summary[aria-expanded=false]::before,
+.view-search-users .bef-exposed-form > .form--inline details summary[aria-expanded=false]::before {
+  content: "▶";
+  font-size: 8px;
+  margin-right: 5px;
+}
+.view-search-results .views-exposed-form details summary[aria-expanded=true]::before,
+.view-search-results .bef-exposed-form > .form--inline details summary[aria-expanded=true]::before,
+.view-search-users .views-exposed-form details summary[aria-expanded=true]::before,
+.view-search-users .bef-exposed-form > .form--inline details summary[aria-expanded=true]::before {
+  content: "▼";
+  font-size: 8px;
+  margin-right: 5px;
+}
+.view-search-results .views-exposed-form details fieldset, .view-search-results .views-exposed-form details > fieldset, .view-search-results .views-exposed-form details.js-form-wrapper fieldset, .view-search-results .views-exposed-form details.js-form-wrapper > fieldset,
+.view-search-results .bef-exposed-form > .form--inline details fieldset,
+.view-search-results .bef-exposed-form > .form--inline details > fieldset,
+.view-search-results .bef-exposed-form > .form--inline details.js-form-wrapper fieldset,
+.view-search-results .bef-exposed-form > .form--inline details.js-form-wrapper > fieldset,
+.view-search-users .views-exposed-form details fieldset,
+.view-search-users .views-exposed-form details > fieldset,
+.view-search-users .views-exposed-form details.js-form-wrapper fieldset,
+.view-search-users .views-exposed-form details.js-form-wrapper > fieldset,
+.view-search-users .bef-exposed-form > .form--inline details fieldset,
+.view-search-users .bef-exposed-form > .form--inline details > fieldset,
+.view-search-users .bef-exposed-form > .form--inline details.js-form-wrapper fieldset,
+.view-search-users .bef-exposed-form > .form--inline details.js-form-wrapper > fieldset {
+  border: none;
+  border-bottom: 1px solid #ddd !important;
+  float: none;
+  padding: 0 0 10px !important;
+}
+.view-search-results .views-exposed-form details fieldset legend, .view-search-results .views-exposed-form details > fieldset legend, .view-search-results .views-exposed-form details.js-form-wrapper fieldset legend, .view-search-results .views-exposed-form details.js-form-wrapper > fieldset legend,
+.view-search-results .bef-exposed-form > .form--inline details fieldset legend,
+.view-search-results .bef-exposed-form > .form--inline details > fieldset legend,
+.view-search-results .bef-exposed-form > .form--inline details.js-form-wrapper fieldset legend,
+.view-search-results .bef-exposed-form > .form--inline details.js-form-wrapper > fieldset legend,
+.view-search-users .views-exposed-form details fieldset legend,
+.view-search-users .views-exposed-form details > fieldset legend,
+.view-search-users .views-exposed-form details.js-form-wrapper fieldset legend,
+.view-search-users .views-exposed-form details.js-form-wrapper > fieldset legend,
+.view-search-users .bef-exposed-form > .form--inline details fieldset legend,
+.view-search-users .bef-exposed-form > .form--inline details > fieldset legend,
+.view-search-users .bef-exposed-form > .form--inline details.js-form-wrapper fieldset legend,
+.view-search-users .bef-exposed-form > .form--inline details.js-form-wrapper > fieldset legend {
+  font-weight: bold;
+  line-height: 1em;
+}
+.view-search-results .views-exposed-form details fieldset:first-child, .view-search-results .views-exposed-form details > fieldset:first-child, .view-search-results .views-exposed-form details.js-form-wrapper fieldset:first-child, .view-search-results .views-exposed-form details.js-form-wrapper > fieldset:first-child,
+.view-search-results .bef-exposed-form > .form--inline details fieldset:first-child,
+.view-search-results .bef-exposed-form > .form--inline details > fieldset:first-child,
+.view-search-results .bef-exposed-form > .form--inline details.js-form-wrapper fieldset:first-child,
+.view-search-results .bef-exposed-form > .form--inline details.js-form-wrapper > fieldset:first-child,
+.view-search-users .views-exposed-form details fieldset:first-child,
+.view-search-users .views-exposed-form details > fieldset:first-child,
+.view-search-users .views-exposed-form details.js-form-wrapper fieldset:first-child,
+.view-search-users .views-exposed-form details.js-form-wrapper > fieldset:first-child,
+.view-search-users .bef-exposed-form > .form--inline details fieldset:first-child,
+.view-search-users .bef-exposed-form > .form--inline details > fieldset:first-child,
+.view-search-users .bef-exposed-form > .form--inline details.js-form-wrapper fieldset:first-child,
+.view-search-users .bef-exposed-form > .form--inline details.js-form-wrapper > fieldset:first-child {
+  margin-top: 0;
+}
+.view-search-results .views-exposed-form details fieldset:has([id*=date]) > .fieldset-wrapper, .view-search-results .views-exposed-form details > fieldset:has([id*=date]) > .fieldset-wrapper, .view-search-results .views-exposed-form details.js-form-wrapper fieldset:has([id*=date]) > .fieldset-wrapper, .view-search-results .views-exposed-form details.js-form-wrapper > fieldset:has([id*=date]) > .fieldset-wrapper,
+.view-search-results .bef-exposed-form > .form--inline details fieldset:has([id*=date]) > .fieldset-wrapper,
+.view-search-results .bef-exposed-form > .form--inline details > fieldset:has([id*=date]) > .fieldset-wrapper,
+.view-search-results .bef-exposed-form > .form--inline details.js-form-wrapper fieldset:has([id*=date]) > .fieldset-wrapper,
+.view-search-results .bef-exposed-form > .form--inline details.js-form-wrapper > fieldset:has([id*=date]) > .fieldset-wrapper,
+.view-search-users .views-exposed-form details fieldset:has([id*=date]) > .fieldset-wrapper,
+.view-search-users .views-exposed-form details > fieldset:has([id*=date]) > .fieldset-wrapper,
+.view-search-users .views-exposed-form details.js-form-wrapper fieldset:has([id*=date]) > .fieldset-wrapper,
+.view-search-users .views-exposed-form details.js-form-wrapper > fieldset:has([id*=date]) > .fieldset-wrapper,
+.view-search-users .bef-exposed-form > .form--inline details fieldset:has([id*=date]) > .fieldset-wrapper,
+.view-search-users .bef-exposed-form > .form--inline details > fieldset:has([id*=date]) > .fieldset-wrapper,
+.view-search-users .bef-exposed-form > .form--inline details.js-form-wrapper fieldset:has([id*=date]) > .fieldset-wrapper,
+.view-search-users .bef-exposed-form > .form--inline details.js-form-wrapper > fieldset:has([id*=date]) > .fieldset-wrapper {
+  display: flex;
+}
+.view-search-results .views-exposed-form details fieldset:not([id*=date]):last-child, .view-search-results .views-exposed-form details > fieldset:not([id*=date]):last-child, .view-search-results .views-exposed-form details.js-form-wrapper fieldset:not([id*=date]):last-child, .view-search-results .views-exposed-form details.js-form-wrapper > fieldset:not([id*=date]):last-child,
+.view-search-results .bef-exposed-form > .form--inline details fieldset:not([id*=date]):last-child,
+.view-search-results .bef-exposed-form > .form--inline details > fieldset:not([id*=date]):last-child,
+.view-search-results .bef-exposed-form > .form--inline details.js-form-wrapper fieldset:not([id*=date]):last-child,
+.view-search-results .bef-exposed-form > .form--inline details.js-form-wrapper > fieldset:not([id*=date]):last-child,
+.view-search-users .views-exposed-form details fieldset:not([id*=date]):last-child,
+.view-search-users .views-exposed-form details > fieldset:not([id*=date]):last-child,
+.view-search-users .views-exposed-form details.js-form-wrapper fieldset:not([id*=date]):last-child,
+.view-search-users .views-exposed-form details.js-form-wrapper > fieldset:not([id*=date]):last-child,
+.view-search-users .bef-exposed-form > .form--inline details fieldset:not([id*=date]):last-child,
+.view-search-users .bef-exposed-form > .form--inline details > fieldset:not([id*=date]):last-child,
+.view-search-users .bef-exposed-form > .form--inline details.js-form-wrapper fieldset:not([id*=date]):last-child,
+.view-search-users .bef-exposed-form > .form--inline details.js-form-wrapper > fieldset:not([id*=date]):last-child {
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
+}
+.view-search-results .views-exposed-form details fieldset .form-checkboxes .form-item, .view-search-results .views-exposed-form details > fieldset .form-checkboxes .form-item, .view-search-results .views-exposed-form details.js-form-wrapper fieldset .form-checkboxes .form-item, .view-search-results .views-exposed-form details.js-form-wrapper > fieldset .form-checkboxes .form-item,
+.view-search-results .bef-exposed-form > .form--inline details fieldset .form-checkboxes .form-item,
+.view-search-results .bef-exposed-form > .form--inline details > fieldset .form-checkboxes .form-item,
+.view-search-results .bef-exposed-form > .form--inline details.js-form-wrapper fieldset .form-checkboxes .form-item,
+.view-search-results .bef-exposed-form > .form--inline details.js-form-wrapper > fieldset .form-checkboxes .form-item,
+.view-search-users .views-exposed-form details fieldset .form-checkboxes .form-item,
+.view-search-users .views-exposed-form details > fieldset .form-checkboxes .form-item,
+.view-search-users .views-exposed-form details.js-form-wrapper fieldset .form-checkboxes .form-item,
+.view-search-users .views-exposed-form details.js-form-wrapper > fieldset .form-checkboxes .form-item,
+.view-search-users .bef-exposed-form > .form--inline details fieldset .form-checkboxes .form-item,
+.view-search-users .bef-exposed-form > .form--inline details > fieldset .form-checkboxes .form-item,
+.view-search-users .bef-exposed-form > .form--inline details.js-form-wrapper fieldset .form-checkboxes .form-item,
+.view-search-users .bef-exposed-form > .form--inline details.js-form-wrapper > fieldset .form-checkboxes .form-item {
+  margin-right: 10px;
+}
+.view-search-results .views-exposed-form details fieldset .form-radios, .view-search-results .views-exposed-form details > fieldset .form-radios, .view-search-results .views-exposed-form details.js-form-wrapper fieldset .form-radios, .view-search-results .views-exposed-form details.js-form-wrapper > fieldset .form-radios,
+.view-search-results .bef-exposed-form > .form--inline details fieldset .form-radios,
+.view-search-results .bef-exposed-form > .form--inline details > fieldset .form-radios,
+.view-search-results .bef-exposed-form > .form--inline details.js-form-wrapper fieldset .form-radios,
+.view-search-results .bef-exposed-form > .form--inline details.js-form-wrapper > fieldset .form-radios,
+.view-search-users .views-exposed-form details fieldset .form-radios,
+.view-search-users .views-exposed-form details > fieldset .form-radios,
+.view-search-users .views-exposed-form details.js-form-wrapper fieldset .form-radios,
+.view-search-users .views-exposed-form details.js-form-wrapper > fieldset .form-radios,
+.view-search-users .bef-exposed-form > .form--inline details fieldset .form-radios,
+.view-search-users .bef-exposed-form > .form--inline details > fieldset .form-radios,
+.view-search-users .bef-exposed-form > .form--inline details.js-form-wrapper fieldset .form-radios,
+.view-search-users .bef-exposed-form > .form--inline details.js-form-wrapper > fieldset .form-radios {
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 1.5em;
+  white-space: nowrap;
+}
+.view-search-results .views-exposed-form details fieldset .form-radios .form-item, .view-search-results .views-exposed-form details > fieldset .form-radios .form-item, .view-search-results .views-exposed-form details.js-form-wrapper fieldset .form-radios .form-item, .view-search-results .views-exposed-form details.js-form-wrapper > fieldset .form-radios .form-item,
+.view-search-results .bef-exposed-form > .form--inline details fieldset .form-radios .form-item,
+.view-search-results .bef-exposed-form > .form--inline details > fieldset .form-radios .form-item,
+.view-search-results .bef-exposed-form > .form--inline details.js-form-wrapper fieldset .form-radios .form-item,
+.view-search-results .bef-exposed-form > .form--inline details.js-form-wrapper > fieldset .form-radios .form-item,
+.view-search-users .views-exposed-form details fieldset .form-radios .form-item,
+.view-search-users .views-exposed-form details > fieldset .form-radios .form-item,
+.view-search-users .views-exposed-form details.js-form-wrapper fieldset .form-radios .form-item,
+.view-search-users .views-exposed-form details.js-form-wrapper > fieldset .form-radios .form-item,
+.view-search-users .bef-exposed-form > .form--inline details fieldset .form-radios .form-item,
+.view-search-users .bef-exposed-form > .form--inline details > fieldset .form-radios .form-item,
+.view-search-users .bef-exposed-form > .form--inline details.js-form-wrapper fieldset .form-radios .form-item,
+.view-search-users .bef-exposed-form > .form--inline details.js-form-wrapper > fieldset .form-radios .form-item {
+  margin-right: 10px;
+}
+.view-search-results .views-exposed-form details fieldset .form-radios .form-item .form-item:last-child, .view-search-results .views-exposed-form details > fieldset .form-radios .form-item .form-item:last-child, .view-search-results .views-exposed-form details.js-form-wrapper fieldset .form-radios .form-item .form-item:last-child, .view-search-results .views-exposed-form details.js-form-wrapper > fieldset .form-radios .form-item .form-item:last-child,
+.view-search-results .bef-exposed-form > .form--inline details fieldset .form-radios .form-item .form-item:last-child,
+.view-search-results .bef-exposed-form > .form--inline details > fieldset .form-radios .form-item .form-item:last-child,
+.view-search-results .bef-exposed-form > .form--inline details.js-form-wrapper fieldset .form-radios .form-item .form-item:last-child,
+.view-search-results .bef-exposed-form > .form--inline details.js-form-wrapper > fieldset .form-radios .form-item .form-item:last-child,
+.view-search-users .views-exposed-form details fieldset .form-radios .form-item .form-item:last-child,
+.view-search-users .views-exposed-form details > fieldset .form-radios .form-item .form-item:last-child,
+.view-search-users .views-exposed-form details.js-form-wrapper fieldset .form-radios .form-item .form-item:last-child,
+.view-search-users .views-exposed-form details.js-form-wrapper > fieldset .form-radios .form-item .form-item:last-child,
+.view-search-users .bef-exposed-form > .form--inline details fieldset .form-radios .form-item .form-item:last-child,
+.view-search-users .bef-exposed-form > .form--inline details > fieldset .form-radios .form-item .form-item:last-child,
+.view-search-users .bef-exposed-form > .form--inline details.js-form-wrapper fieldset .form-radios .form-item .form-item:last-child,
+.view-search-users .bef-exposed-form > .form--inline details.js-form-wrapper > fieldset .form-radios .form-item .form-item:last-child {
+  margin-right: 0;
+}
+.view-search-results .views-exposed-form .form-actions,
+.view-search-results .bef-exposed-form > .form--inline .form-actions,
+.view-search-users .views-exposed-form .form-actions,
+.view-search-users .bef-exposed-form > .form--inline .form-actions {
+  margin: 0;
+}
+.view-search-results .search-result-highlight,
+.view-search-users .search-result-highlight {
+  background-color: yellow;
+}
+.view-search-results .search-result-excerpt,
+.view-search-users .search-result-excerpt {
+  font-size: 80%;
+  line-height: 1.5em;
+}
+.view-search-results .views-field-search-api-excerpt,
+.view-search-users .views-field-search-api-excerpt {
+  border-top: 0.5px dotted #666;
+  color: #666;
+  font-size: 12px;
+  font-style: italic;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.view-search-results .views-field-search-api-excerpt .views-label,
+.view-search-users .views-field-search-api-excerpt .views-label {
+  color: #333;
+}
+.view-search-results .views-field-field-county,
+.view-search-users .views-field-field-county {
+  text-transform: capitalize;
+}
+.view-search-results .views-field-field-mailing-address,
+.view-search-users .views-field-field-mailing-address {
+  font-size: 80%;
+  line-height: 1.35em;
+  margin: 0;
+}
+.view-search-results .views-field-field-mailing-address p.address,
+.view-search-users .views-field-field-mailing-address p.address {
+  background: #eee;
+  border-radius: 3px;
+  display: inline-block;
+  font-size: 12px;
+  margin: 0;
+  padding: 5px;
+}
+.view-search-results .views-field-field-mailing-address p.address .country,
+.view-search-users .views-field-field-mailing-address p.address .country {
+  display: none;
+}

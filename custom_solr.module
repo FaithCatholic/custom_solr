@@ -1,0 +1,83 @@
+<?php
+
+/**
+ * @file
+ * Custom solr search module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\views\ViewExecutable;
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function custom_solr_views_pre_render(ViewExecutable $view) {
+  ### Remove stubborn duplicates ###
+  if ($view->storage->get('id') === 'search_results' && $view->current_display === 'default_page') {
+    $seen_ids = [];
+    $unique_results = [];
+    foreach ($view->result as $row) {
+      if (isset($row->_entity) && $row->_entity instanceof EntityInterface) {
+        $id = $row->_entity->id();
+        // Keep first occurrence.
+        if (!isset($seen_ids[$id])) {
+          $seen_ids[$id] = TRUE;
+          $unique_results[] = $row;
+        }
+      }
+    }
+    $view->result = $unique_results;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function custom_solr_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form['#id'] === 'views-exposed-form-search-results-default-page') {
+    ### Layout ###
+
+    // Move action buttons to they are next to
+    // search box and above advanced filter options.
+    $form['keys']['#weight'] = -1;
+    unset($form['actions']['reset']['#weight']);
+
+    $submit = $form['actions']['submit'];
+    $reset = $form['actions']['reset'];
+    unset($form['actions']['submit']);
+    unset($form['actions']['reset']);
+
+    $form = [
+      'actions_submit' => $submit,
+      'actions_reset' => $reset,
+    ] + $form;
+
+    // Move sorts so that they are beneath
+    // facets and exposed filters.
+    if (!empty($form['sort_by'])) {
+      $form['sort_by']['#weight'] = 20;
+    }
+    if (!empty($form['sort_order'])) {
+      $form['sort_order']['#weight'] = 21;
+    }
+
+    // Adjust form item labels.
+    $date_range_fields = [];
+    $date_range_fields[] = 'created_date';
+    $date_range_fields[] = 'published_dates';
+    $date_range_fields[] = 'event_date';
+
+    foreach($date_range_fields as $date_range_field) {
+      if (!empty($form[$date_range_field.'_wrapper'])) {
+        $form[$date_range_field . '_wrapper'][$date_range_field . '_wrapper'][$date_range_field]['min']['#title'] = t('Between');
+        $form[$date_range_field . '_wrapper'][$date_range_field . '_wrapper'][$date_range_field]['max']['#title'] = t('and');
+        $form[$date_range_field . '_wrapper']['#weight'] = 10;
+      }
+    }
+
+    // Attach libraries.
+    $form['#attached']['library'][] = 'custom_solr/solr_theme';
+    $form['#attached']['library'][] = 'custom_solr/solr_scripts';
+  }
+}

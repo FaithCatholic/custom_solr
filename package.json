@@ -1,0 +1,38 @@
+{
+  "name": "custom_solr",
+  "version": "1.0.0",
+  "description": "Packages for processing sass/css and js.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "dev": "npm run development",
+    "development": "node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "npm run development -- --watch",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "project-setup": "gulp uglify && gulp sass"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-cli": "^3.1.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^5.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-strip-css-comments": "^2.0.0",
+    "gulp-uglify": "^3.0.2",
+    "laravel-mix": "^6.0.49",
+    "node-sass-globbing": "0.0.23",
+    "resolve-url-loader": "^5.0.0",
+    "sass-loader": "^12.6.0",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "sass": "^1.53.0"
+  }
+}

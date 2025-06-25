@@ -1,0 +1,610 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.directory.field_county
+    - field.storage.directory.field_general_info
+    - field.storage.directory.field_mailing_address
+    - field.storage.directory.field_name
+    - field.storage.directory.field_vicariate
+    - field.storage.node.field_body
+    - field.storage.node.field_byline
+    - field.storage.node.field_contact_name
+    - field.storage.node.field_date
+    - field.storage.node.field_deckhead
+    - field.storage.node.field_description
+    - field.storage.node.field_employment_type
+    - field.storage.node.field_event_category
+    - field.storage.node.field_event_type
+    - field.storage.node.field_info_below_contacts
+    - field.storage.node.field_info_below_icons
+    - field.storage.node.field_job_category
+    - field.storage.node.field_kicker
+    - field.storage.node.field_ministry
+    - field.storage.node.field_organization_name
+    - field.storage.node.field_published_date
+    - field.storage.node.field_subhead
+    - field.storage.user.field_bio
+    - field.storage.user.field_diocesan_department
+    - field.storage.user.field_diocesan_ministries
+    - field.storage.user.field_hide
+    - field.storage.user.field_job_title
+    - field.storage.user.field_parish_school
+    - field.storage.user.field_public_email
+    - field.storage.user.field_user_first_name
+    - field.storage.user.field_user_last_name
+    - search_api.server.solr
+  module:
+    - diocesan_directory
+    - node
+    - search_api_solr
+    - user
+third_party_settings:
+  search_api_solr:
+    finalize: false
+    commit_before_finalize: false
+    commit_after_finalize: false
+    debug_finalize: false
+    highlighter:
+      maxAnalyzedChars: 51200
+      fragmenter: gap
+      usePhraseHighlighter: true
+      highlightMultiTerm: true
+      preserveMulti: false
+      regex:
+        slop: 0.5
+        pattern: blank
+        maxAnalyzedChars: 10000
+      highlight:
+        mergeContiguous: false
+        requireFieldMatch: false
+        snippets: 3
+        fragsize: 0
+    mlt:
+      mintf: 1
+      mindf: 1
+      maxdf: 0
+      maxdfpct: 0
+      minwl: 0
+      maxwl: 0
+      maxqt: 100
+      maxntp: 2000
+      boost: false
+      interestingTerms: none
+    term_modifiers:
+      slop: 3
+      fuzzy: 1
+      fuzzy_analyzer: true
+    advanced:
+      index_prefix: ''
+      collection: ''
+      timezone: ''
+    multilingual:
+      limit_to_content_language: false
+      include_language_independent: true
+      use_language_undefined_as_fallback_language: true
+      specific_languages:
+        en: '0'
+      use_universal_collation: false
+id: default_index
+name: 'Default index'
+description: ''
+read_only: false
+field_settings:
+  created:
+    label: Created
+    datasource_id: 'entity:directory'
+    property_path: created
+    type: date
+    dependencies:
+      module:
+        - diocesan_directory
+  created_1:
+    label: 'Authored on'
+    datasource_id: 'entity:node'
+    property_path: created
+    type: date
+    dependencies:
+      module:
+        - node
+  created_2:
+    label: Created
+    datasource_id: 'entity:user'
+    property_path: created
+    type: date
+    dependencies:
+      module:
+        - user
+  entity_type:
+    label: 'Entity type'
+    property_path: search_api_entity_type
+    type: string
+  field_bio:
+    label: Bio
+    datasource_id: 'entity:user'
+    property_path: field_bio
+    type: text
+    dependencies:
+      config:
+        - field.storage.user.field_bio
+  field_body:
+    label: Body
+    datasource_id: 'entity:node'
+    property_path: field_body
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_body
+  field_byline:
+    label: Byline
+    datasource_id: 'entity:node'
+    property_path: field_byline
+    type: text
+    boost: 1.1
+    dependencies:
+      config:
+        - field.storage.node.field_byline
+  field_contact_name:
+    label: 'Contact name'
+    datasource_id: 'entity:node'
+    property_path: field_contact_name
+    type: text
+    boost: 1.5
+    dependencies:
+      config:
+        - field.storage.node.field_contact_name
+  field_county:
+    label: County
+    datasource_id: 'entity:directory'
+    property_path: field_county
+    type: text
+    boost: 2.0
+    dependencies:
+      config:
+        - field.storage.directory.field_county
+  field_date:
+    label: 'Event date'
+    datasource_id: 'entity:node'
+    property_path: field_date
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_date
+  field_deckhead:
+    label: Summary
+    datasource_id: 'entity:node'
+    property_path: field_deckhead
+    type: text
+    boost: 1.5
+    dependencies:
+      config:
+        - field.storage.node.field_deckhead
+  field_description:
+    label: Description
+    datasource_id: 'entity:node'
+    property_path: field_description
+    type: text
+    boost: 1.5
+    dependencies:
+      config:
+        - field.storage.node.field_description
+  field_diocesan_department:
+    label: 'Diocesan Department'
+    datasource_id: 'entity:user'
+    property_path: field_diocesan_department
+    type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_diocesan_department
+  field_diocesan_ministries:
+    label: 'Diocesan Ministries'
+    datasource_id: 'entity:user'
+    property_path: field_diocesan_ministries
+    type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_diocesan_ministries
+  field_employment_type:
+    label: 'Employment type'
+    datasource_id: 'entity:node'
+    property_path: field_employment_type
+    type: text
+    boost: 0.8
+    dependencies:
+      config:
+        - field.storage.node.field_employment_type
+  field_event_category:
+    label: 'Event category'
+    datasource_id: 'entity:node'
+    property_path: field_event_category
+    type: text
+    boost: 1.1
+    dependencies:
+      config:
+        - field.storage.node.field_event_category
+  field_event_type:
+    label: 'Event type'
+    datasource_id: 'entity:node'
+    property_path: field_event_type
+    type: text
+    boost: 1.4
+    dependencies:
+      config:
+        - field.storage.node.field_event_type
+  field_general_info:
+    label: 'General info'
+    datasource_id: 'entity:directory'
+    property_path: field_general_info
+    type: text
+    dependencies:
+      config:
+        - field.storage.directory.field_general_info
+  field_hide:
+    label: 'Hide from directory'
+    datasource_id: 'entity:user'
+    property_path: field_hide
+    type: boolean
+    dependencies:
+      config:
+        - field.storage.user.field_hide
+  field_info_below_contacts:
+    label: 'Info below contacts'
+    datasource_id: 'entity:node'
+    property_path: field_info_below_contacts
+    type: text
+    boost: 0.9
+    dependencies:
+      config:
+        - field.storage.node.field_info_below_contacts
+  field_info_below_icons:
+    label: 'Info below Icons'
+    datasource_id: 'entity:node'
+    property_path: field_info_below_icons
+    type: text
+    boost: 0.9
+    dependencies:
+      config:
+        - field.storage.node.field_info_below_icons
+  field_job_category:
+    label: 'Job category'
+    datasource_id: 'entity:node'
+    property_path: field_job_category
+    type: text
+    boost: 1.1
+    dependencies:
+      config:
+        - field.storage.node.field_job_category
+  field_job_title:
+    label: 'Job Title'
+    datasource_id: 'entity:user'
+    property_path: field_job_title
+    type: text
+    boost: 2.0
+    dependencies:
+      config:
+        - field.storage.user.field_job_title
+  field_kicker:
+    label: Kicker
+    datasource_id: 'entity:node'
+    property_path: field_kicker
+    type: text
+    boost: 1.5
+    dependencies:
+      config:
+        - field.storage.node.field_kicker
+  field_mailing_address:
+    label: 'Mailing address'
+    datasource_id: 'entity:directory'
+    property_path: field_mailing_address
+    type: text
+    boost: 1.5
+    dependencies:
+      config:
+        - field.storage.directory.field_mailing_address
+  field_ministry:
+    label: Ministry
+    datasource_id: 'entity:node'
+    property_path: field_ministry
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ministry
+  field_name:
+    label: 'Parish/school name'
+    datasource_id: 'entity:directory'
+    property_path: field_name
+    type: text
+    boost: 5.0
+    dependencies:
+      config:
+        - field.storage.directory.field_name
+  field_organization_name:
+    label: 'Organization name'
+    datasource_id: 'entity:node'
+    property_path: field_organization_name
+    type: text
+    boost: 1.3
+    dependencies:
+      config:
+        - field.storage.node.field_organization_name
+  field_parish_school:
+    label: Parish/school
+    datasource_id: 'entity:user'
+    property_path: field_parish_school
+    type: text
+    dependencies:
+      config:
+        - field.storage.user.field_parish_school
+  field_public_email:
+    label: 'Public email'
+    datasource_id: 'entity:user'
+    property_path: field_public_email
+    type: text
+    boost: 5.0
+    dependencies:
+      config:
+        - field.storage.user.field_public_email
+  field_published_date:
+    label: 'Publish date'
+    datasource_id: 'entity:node'
+    property_path: field_published_date
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_published_date
+  field_subhead:
+    label: Subhead
+    datasource_id: 'entity:node'
+    property_path: field_subhead
+    type: text
+    boost: 2.0
+    dependencies:
+      config:
+        - field.storage.node.field_subhead
+  field_user_first_name:
+    label: 'First name'
+    datasource_id: 'entity:user'
+    property_path: field_user_first_name
+    type: text
+    boost: 5.0
+    dependencies:
+      config:
+        - field.storage.user.field_user_first_name
+  field_user_last_name:
+    label: 'Last name'
+    datasource_id: 'entity:user'
+    property_path: field_user_last_name
+    type: text
+    boost: 8.0
+    dependencies:
+      config:
+        - field.storage.user.field_user_last_name
+  field_vicariate:
+    label: Deanery
+    datasource_id: 'entity:directory'
+    property_path: field_vicariate
+    type: text
+    boost: 1.5
+    dependencies:
+      config:
+        - field.storage.directory.field_vicariate
+  node_grants:
+    label: 'Node access information'
+    property_path: search_api_node_grants
+    type: string
+    indexed_locked: true
+    type_locked: true
+    hidden: true
+  roles:
+    label: Roles
+    datasource_id: 'entity:user'
+    property_path: roles
+    type: string
+    dependencies:
+      module:
+        - user
+  status:
+    label: Published
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    indexed_locked: true
+    type_locked: true
+    dependencies:
+      module:
+        - node
+  status_1:
+    label: 'User status'
+    datasource_id: 'entity:user'
+    property_path: status
+    type: boolean
+    dependencies:
+      module:
+        - user
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: 5.0
+    dependencies:
+      module:
+        - node
+  type:
+    label: 'Directory type'
+    datasource_id: 'entity:directory'
+    property_path: type
+    type: string
+    dependencies:
+      module:
+        - diocesan_directory
+  type_1:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
+    dependencies:
+      module:
+        - node
+  uid:
+    label: 'Entity reference'
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    indexed_locked: true
+    type_locked: true
+    dependencies:
+      module:
+        - node
+datasource_settings:
+  'entity:directory':
+    bundles:
+      default: false
+      selected:
+        - parishes
+        - schools
+    languages:
+      default: true
+      selected: {  }
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - article
+        - events
+        - job_posting
+        - landing_page
+        - page
+    languages:
+      default: true
+      selected: {  }
+  'entity:user':
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  auto_aggregated_fulltext_field: {  }
+  content_access:
+    weights:
+      preprocess_query: -30
+  custom_value: {  }
+  entity_status: {  }
+  entity_type: {  }
+  highlight:
+    weights:
+      postprocess_query: 0
+    prefix: '<span class="search-result-highlight">'
+    suffix: '</span>'
+    excerpt: true
+    excerpt_always: false
+    excerpt_length: 150
+    exclude_fields: {  }
+    highlight: always
+    highlight_partial: false
+  html_filter:
+    weights:
+      preprocess_index: -47
+      preprocess_query: -15
+    all_fields: true
+    fields:
+      - entity_type
+      - field_bio
+      - field_body
+      - field_byline
+      - field_contact_name
+      - field_county
+      - field_deckhead
+      - field_description
+      - field_employment_type
+      - field_event_category
+      - field_event_type
+      - field_general_info
+      - field_info_below_contacts
+      - field_info_below_icons
+      - field_job_category
+      - field_job_title
+      - field_kicker
+      - field_mailing_address
+      - field_ministry
+      - field_name
+      - field_organization_name
+      - field_parish_school
+      - field_public_email
+      - field_subhead
+      - field_user_first_name
+      - field_user_last_name
+      - field_vicariate
+      - roles
+      - title
+      - type
+      - type_1
+    title: false
+    alt: false
+    tags:
+      b: 2
+      h1: 5
+      h2: 3
+      h3: 2
+      strong: 2
+  language_with_fallback: {  }
+  number_field_boost:
+    weights:
+      preprocess_index: -43
+    boosts: {  }
+  rendered_item: {  }
+  solr_boost_more_recent:
+    weights:
+      preprocess_query: 0
+    boosts:
+      created:
+        boost: 0.3
+        resolution: NOW/DAY
+        m: '3.16e-11'
+        a: 0.1
+        b: 0.05
+        support_future_dates: false
+      created_1:
+        boost: 0.3
+        resolution: NOW/DAY
+        m: '3.16e-11'
+        a: 0.1
+        b: 0.05
+        support_future_dates: false
+      created_2:
+        boost: 0.3
+        resolution: NOW/DAY
+        m: '3.16e-11'
+        a: 0.1
+        b: 0.05
+        support_future_dates: false
+  solr_date_range:
+    weights:
+      preprocess_index: 0
+  type_boost:
+    weights:
+      preprocess_index: -44
+    boosts:
+      'entity:directory':
+        datasource_boost: 3.0
+        bundle_boosts:
+          schools: 2.0
+      'entity:node':
+        datasource_boost: 1.0
+        bundle_boosts:
+          article: 1.3
+          events: 1.4
+          job_posting: 0.7
+          landing_page: 0.5
+      'entity:user':
+        datasource_boost: 5.0
+tracker_settings:
+  default:
+    indexing_order: lifo
+options:
+  cron_limit: 50
+  delete_on_fail: true
+  index_directly: true
+  track_changes_in_references: true
+server: solr

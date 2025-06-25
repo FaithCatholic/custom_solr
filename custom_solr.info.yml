@@ -1,0 +1,13 @@
+name: Custom Solr Search
+type: module
+description: 'Custom Solr searching.'
+core_version_requirement: ^10 || ^9
+package: Custom
+dependencies:
+  - better_exposed_filters:better_exposed_filters
+  - block_class:block_class
+  - diocesan_directory:diocesan_directory
+  - drupal:views
+  - facets:facets
+  - search_api_solr_admin:search_api_solr_admin
+  - search_api:search_api
