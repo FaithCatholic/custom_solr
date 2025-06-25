@@ -29,7 +29,7 @@ Next, edit the Default index and verify that "SOLR" is selected under
 the Server section. Keep default settings unless you know what you are
 doing.
 
-## Customization
+## Customization of functionality
 ---
 
 You can add additional searchable fields using the "Fields" tab on the
@@ -47,3 +47,16 @@ New filters and sorts can be added to the results page by editing the
 "Search Results" view. Be careful to nest appropriate fields under
 the appropriate entity-specific filter groups, with the exception of facet
 filters that display above the grouped filters.
+
+## Customization of styles
+---
+
+Stylesheet updates should be made using the <code>*.scss</code> files
+in the <code>sass</code> directory, and not in the <code>dist</code> directory.
+
+Similarly, javascript updates should be made in the <code>js</code>
+directory.
+
+You can run preprocessing by running <code>$ npm run development</cdoe> or
+via gulp <code>$ gulp</code> (to use gulp, you must be able to run the
+command, which is installed from <code>gulp_cli</code> in <code>package.json</code>).

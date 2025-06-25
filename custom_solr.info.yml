@@ -1,4 +1,4 @@
-name: Custom Solr Search
+name: Custom Solr search
 type: module
 description: 'Custom Solr searching.'
 core_version_requirement: ^10 || ^9
@@ -10,4 +10,5 @@ dependencies:
   - drupal:views
   - facets:facets
   - search_api_solr_admin:search_api_solr_admin
+  - search_api_solr:search_api_solr
   - search_api:search_api
