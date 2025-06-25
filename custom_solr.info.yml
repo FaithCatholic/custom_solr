@@ -10,4 +10,5 @@ dependencies:
   - drupal:views
   - facets:facets
   - search_api_solr_admin:search_api_solr_admin
+  - search_api_solr:search_api_solr
   - search_api:search_api
