@@ -11,7 +11,6 @@
         "drupal/search_api": "^1.3",
         "drupal/search_api_solr": "^4.3",
         "drupal/search_api_solr_admin": "^4.3",
-        "drupal/views": "^10.4",
         "faithcatholic/diocesan_directory": "^2.0"
     }
 }

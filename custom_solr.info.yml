@@ -6,7 +6,6 @@ package: Custom
 dependencies:
   - better_exposed_filters:better_exposed_filters
   - diocesan_directory:diocesan_directory
-  - drupal:views
   - facets:facets
   - facets_exposed_filters:facets_exposed_filters
   - facets_searchbox_widget:facets_searchbox_widget
